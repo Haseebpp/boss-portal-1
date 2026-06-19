@@ -45,6 +45,7 @@ class JahezAdapter {
       try {
         const headers = {
           'X-API-KEY': this.apiKey,
+          'Secret-Code': this.apiKey,
           'Content-Type': 'application/json'
         };
 
@@ -85,7 +86,10 @@ class JahezAdapter {
       return { success: true, platform: 'jahez', status };
     } else {
       try {
-        const headers = { 'X-API-KEY': this.apiKey };
+        const headers = { 
+          'X-API-KEY': this.apiKey,
+          'Secret-Code': this.apiKey
+        };
         const jzStatus = status === 'preparing' ? 'CONFIRMED' : status === 'dispatched' ? 'PICKED_UP' : status === 'cancelled' ? 'CANCELLED' : 'DELIVERED';
         const response = await axios.post(`${this.apiUrl}/orders/${externalOrderId}/status`, { status: jzStatus }, { headers });
         return { success: true, platform: 'jahez', data: response.data };
