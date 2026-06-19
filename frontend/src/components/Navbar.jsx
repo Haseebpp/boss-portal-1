@@ -11,9 +11,9 @@ const Navbar = ({ activeTab, setActiveTab }) => {
   return (
     <nav className="navbar">
       <div className="navbar-brand">
-        <div className="navbar-logo">⚡</div>
+        <img src="/logo.png" alt="Bozz Logo" className="navbar-logo-img" />
         <div>
-          <h1>BossPortal</h1>
+          <h1>BozzPortal</h1>
           <span className="subtitle">Unified Delivery Hub</span>
         </div>
       </div>
